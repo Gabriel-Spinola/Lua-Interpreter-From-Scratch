@@ -1,6 +1,4 @@
-# Building a Lua interpreter
-
- # Building Interpetrer a Lua Interpreter in Rust
+# Building Lua Interpreter
  https://wubingzheng.github.io/build-lua-in-rust/en/
 
  ## General Compilation Principle
