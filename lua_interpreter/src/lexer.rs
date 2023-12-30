@@ -1,6 +1,6 @@
 use std::{fs::File, io::{Read, Seek, SeekFrom}};
 
-#[derive(Debug)]
+#[derive(Debug, PartialEq)]
 pub enum Token {
   // Keywords
   And,    Break,  Do,     Else,   Elseif, End,
@@ -10,7 +10,7 @@ pub enum Token {
   
   // +      -      *       /       %       ^       #
   Add,    Sub,    Mul,    Div,    Mod,    Pow,    Len,
-  // &       ~       |       <<      >>      //
+  // &       ~       |       <<      >>    //
   BitAnd, BitXor, BitOr,  ShiftL, ShiftR, Idiv,
   // ==     ~=     <=      >=      <         >        =
   Equal,  NotEq,  LesEq,  GreEq,  Less,   Greater, Assign,
@@ -246,20 +246,9 @@ impl Lexer {
 
 
   fn read_numbers(&mut self, first: char) -> Token {
-    // heximal
-    if first == '0' {
-      let second = self.read_character();
-
-      if second == 'x' || second == 'X' {
-        todo!()
-      }
-
-      self.putback_char();
-    }
-
     // decimal
     let mut number = char::to_digit(first, 10).unwrap() as i64;
-    
+
     loop {
       let char = self.read_character();
 
@@ -304,6 +293,7 @@ impl Lexer {
           x *= 10.0;
         } else {
           self.putback_char();
+
           break;
         }
     }

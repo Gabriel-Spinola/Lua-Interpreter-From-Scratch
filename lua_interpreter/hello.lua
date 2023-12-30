@@ -1,4 +1,7 @@
 print "Hi, Mom!"
+print "Hello, World 2"
+print("asdiashndas")
+print(1.602)
 
 -- # Building Interpetrer a Lua Interpreter in Rust
 -- https://wubingzheng.github.io/build-lua-in-rust/en/
