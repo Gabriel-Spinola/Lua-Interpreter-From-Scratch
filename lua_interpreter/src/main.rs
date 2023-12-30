@@ -1,11 +1,22 @@
-/// Ensure that the enum does'nt exceed 32bits.
-#[derive(Debug)]
-pub enum ByteCode {
-  GetCall(u8, u8),
-  LoadConst(u8, u8),
-  Call(u8, u8),
-}
+mod lexer;
+mod parser;
+mod lib;
+mod vm;
+
+use std::env;
+use std::fs::File;
 
 fn main() {
-  println!("Hello, world!");
+  let args: Vec<String> = env::args().collect();
+
+  if args.len() != 2 {
+    println!("Usage: {} script", args[0]);
+
+    return;
+  }
+
+  let file = File::open(&args[1]).unwrap();
+  let proto = parser::load(file);
+  
+  vm::ExeState::new().execute(&proto);
 }

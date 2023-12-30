@@ -1,0 +1,7 @@
+{
+  "rust-analyzer.linkedProjects": [
+    ".\\lua_interpreter\\Cargo.toml",
+    ".\\lua_interpreter\\Cargo.toml",
+    ".\\lua_interpreter\\Cargo.toml"
+  ]
+}
