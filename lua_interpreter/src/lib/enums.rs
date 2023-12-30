@@ -2,8 +2,6 @@ use std::fmt;
 
 use crate::vm::ExeState;
 
-
-
 /// Ensure that the enum does not exceed 32bits.
 #[derive(Debug)]
 pub enum ByteCode {

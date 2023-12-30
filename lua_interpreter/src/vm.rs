@@ -56,6 +56,7 @@ impl ExeState {
     }
   }
 
+  //  NOTE - stack setting behaviour
   fn set_stack(&mut self, index: u8, value: Value) {
     let index = index as usize;
 

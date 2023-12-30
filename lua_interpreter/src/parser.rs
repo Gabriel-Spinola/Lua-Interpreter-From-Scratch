@@ -16,7 +16,7 @@ pub fn load(input: File) -> ParsedProto {
   loop {
     match lexer.next() {
       // NOTE - `Name LiteralString` as function call
-      Token::Name(name) => { 
+      Token::VarName(name) => { 
         constants.push(Value::String(name));
 
         // NOTE - Since we currently only support function calls, the stack is only used for that
